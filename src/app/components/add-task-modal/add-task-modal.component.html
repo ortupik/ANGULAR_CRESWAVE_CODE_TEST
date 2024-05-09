@@ -1,0 +1,23 @@
+<div class="add-modal-container">
+<h2 mat-dialog-title>Add Task</h2>
+<div mat-dialog-content >
+  <form (ngSubmit)="saveTask()">
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" name="title" [(ngModel)]="task.title" required>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput name="description" [(ngModel)]="task.description"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="primary" type="submit" class="saveBtn">Save</button>
+      <button mat-raised-button  color="warn" type="button" (click)="closeDialog()">Cancel</button>
+    </div>
+  </form>
+</div>
+</div>

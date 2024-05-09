@@ -1,0 +1,28 @@
+<div class="edit-task-container">
+    <h2>Edit Task</h2>
+    <form (ngSubmit)="saveTask()">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" id="title" name="title" [(ngModel)]="task.title" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput id="description" name="description" [(ngModel)]="task.description"></textarea>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Status</mat-label>
+        <mat-select id="status" name="status" [(ngModel)]="task.status">
+          <mat-option [value]="true">Complete</mat-option> 
+          <mat-option [value]="false">Incomplete</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="button-group"> 
+        <button mat-raised-button color="primary" type="submit">Edit task</button>
+        <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancel</button>
+      </div> 
+    </form>
+  </div>
+  
