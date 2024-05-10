@@ -14,6 +14,7 @@ import { AddTaskModalComponent } from '../add-task-modal/add-task-modal.componen
 export class TaskListComponent implements OnInit {
   @Input() taskList: Task[] = [];
   displayedColumns = ['title', 'description', 'status', 'actions'];
+  loadingTasks = false; 
 
   constructor(
     private taskService: TaskService,
@@ -25,15 +26,18 @@ export class TaskListComponent implements OnInit {
   }
 
   loadAllTasks() {
+    this.loadingTasks = true;
     this.taskService.getAllTasks()
       .pipe(
         catchError((error) => {
           console.error('Error fetching tasks:', error);
+          this.loadingTasks = false;
           return throwError('Failed to fetch tasks.');
         })
       )
       .subscribe(tasks => {
         this.taskList = tasks;
+        this.loadingTasks = false;
       });
   }
 
@@ -48,34 +52,20 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  markComplete(task: Task) {
-    task.status = !task.status;
-    this.updateTask(task);
-  }
-
-  updateTask(task: Task) {
-    this.taskService.updateTask(task)
-      .pipe(
-        catchError((error) => {
-          console.error('Error updating task:', error);
-          return throwError('Failed to update task.');
-        })
-      )
-      .subscribe();
-  }
-
   deleteTask(task: Task) {
     if (confirm('Are you sure you want to delete this task?')) {
+      this.loadingTasks = true;
       this.taskService.deleteTask(task.id)
         .pipe(
           catchError((error) => {
             console.error('Error deleting task:', error);
+            this.loadingTasks = false;
             return throwError('Failed to delete task.');
           })
         )
         .subscribe(() => {
-          // Remove the task from the taskList array
           this.taskList = this.taskList.filter(t => t.id !== task.id);
+          this.loadingTasks = false;
         });
     }
   }

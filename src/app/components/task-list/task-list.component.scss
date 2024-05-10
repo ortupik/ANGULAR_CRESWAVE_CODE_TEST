@@ -3,7 +3,17 @@
     justify-content: flex-end;  
     margin-top: 15px; 
     margin-bottom: 20px;
+}
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; 
   }
+  
+.task-list-main{
+    margin: 40px;
+}
 .add-task-button-container{
     margin-bottom: 30px;
 }

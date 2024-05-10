@@ -1,44 +1,48 @@
-<h2 class="font-bold text-xl">Tasks</h2>
+<div class="task-list-main">
+  <h2 class="font-bold text-xl">Tasks</h2>
 
-<div class="add-task-button-container">
-  <button mat-raised-button color="primary" (click)="openAddTaskModal()">Add Task</button>
+  <div class="add-task-button-container">
+    <button mat-raised-button color="primary" (click)="openAddTaskModal()">Add Task</button>
+  </div>
+
+  <div *ngIf="taskList.length === 0" class="loading-spinner">
+    <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+  </div>
+
+  <table mat-table [dataSource]="taskList" class="mat-elevation-z8" *ngIf="taskList.length > 0">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let task">{{ task.title }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let task">{{ task.description }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let task">
+        <span class="status-label" 
+              [ngClass]="{'status-complete': task.status, 'status-incomplete': !task.status}">
+          {{ task.status ? 'Complete' : 'Incomplete' }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let task">
+        <button mat-icon-button [routerLink]="['/tasks', task.id]">
+          <mat-icon color="primary">edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteTask(task)">
+          <mat-icon color="warn">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let task; columns: displayedColumns;"></tr>
+  </table>
 </div>
-
-<table mat-table [dataSource]="taskList" class="mat-elevation-z8">
-  <!-- Title Column -->
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef>Title</th>
-    <td mat-cell *matCellDef="let task">{{ task.title }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef>Description</th>
-    <td mat-cell *matCellDef="let task">{{ task.description }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let task">
-      <span class="status-label" 
-            [ngClass]="{'status-complete': task.status, 'status-incomplete': !task.status}">
-        {{ task.status ? 'Complete' : 'Incomplete' }}
-      </span>
-    </td>
-  </ng-container>
-  
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let task">
-      <button mat-icon-button [routerLink]="['/tasks', task.id]">
-        <mat-icon color="primary">edit</mat-icon>
-      </button>
-      <button mat-icon-button (click)="deleteTask(task)">
-        <mat-icon color="warn">delete</mat-icon>
-      </button>
-    </td>
-  </ng-container>
-
-  <!-- Header and Row Definitions -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let task; columns: displayedColumns;"></tr>
-</table>

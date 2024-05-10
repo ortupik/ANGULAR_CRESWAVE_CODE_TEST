@@ -15,10 +15,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { AddTaskModalComponent } from './components/add-task-modal/add-task-modal.component';
+import { HeaderComponent } from './header/header.component'; 
+import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent, 
+    FooterComponent,
     TaskListComponent,
     EditTaskComponent,
     AddTaskModalComponent
@@ -34,7 +42,10 @@ import { AddTaskModalComponent } from './components/add-task-modal/add-task-moda
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     provideAnimationsAsync()

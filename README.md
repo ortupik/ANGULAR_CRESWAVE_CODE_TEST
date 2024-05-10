@@ -1,28 +1,96 @@
-# TodoApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+# Angular Tasks App
 
-## Development server
+This is a simple task application built with Angular. It allows users to create, update, and delete tasks.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- Create new tasks
+- Mark tasks as completed
+- Edit existing tasks
+- Delete tasks
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
 
-## Build
+Before running the application, make sure you have the following installed:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js and npm (Node Package Manager)
+- Angular CLI (Command Line Interface)
 
-## Running unit tests
+## Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Follow these steps to get the project up and running on your local machine:
 
-## Running end-to-end tests
+1. Clone the repository:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+git clone https://github.com/ortupic/angular-creswave.git
+```
 
-## Further help
+2. Navigate into the project directory:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-"# ANGULAR_CRESWAVE_CODE_TEST" 
+```
+cd angular-cresave-task
+```
+
+3. Install dependencies:
+
+```
+npm install
+```
+
+4. Start the development server:
+
+```
+ng serve
+```
+
+5. Open your browser and navigate to `http://localhost:4200/` to view the app.
+
+## Folder Structure
+
+The project structure is as follows:
+
+```
+angular-todo-app/
+  ├── src/
+  │   ├── app/
+  │   │   ├── components/
+  │   │   │   ├── header/
+  │   │   │   ├── sidebar/
+  │   │   │   ├── task-list/
+  │   │   │   └── ...
+  │   │   ├── models/
+  │   │   ├── services/
+  │   │   ├── app.component.html
+  │   │   ├── app.component.ts
+  │   │   ├── app.module.ts
+  │   │   └── ...
+  │   ├── assets/
+  │   ├── environments/
+  │   ├── index.html
+  │   └── ...
+  ├── node_modules/
+  ├── angular.json
+  ├── package.json
+  ├── README.md
+  └── ...
+```
+
+## Technologies Used
+
+- Angular: Frontend framework for building the user interface.
+- TypeScript: Superset of JavaScript used for writing Angular applications.
+- HTML/CSS: Markup and styling languages for web development.
+- Bootstrap: CSS framework for building responsive and mobile-first websites.
+- RxJS: Library for reactive programming using Observables.
+- Angular Material: UI component library for Angular applications.
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request for any improvements or new features.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```

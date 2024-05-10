@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
-  readonly apiBaseUrl = 'http://localhost:3000';
+  readonly apiBaseUrl = 'https://json-server-kjqy.onrender.com';
 }
