@@ -1,5 +1,5 @@
 
-# Angular Tasks App
+# Angular Creswave Tasks App
 
 This is a simple task application built with Angular. It allows users to create, update, and delete tasks.
 
@@ -24,13 +24,13 @@ Follow these steps to get the project up and running on your local machine:
 1. Clone the repository:
 
 ```
-git clone https://github.com/ortupic/angular-creswave.git
+git clone https://github.com/ortupik/ANGULAR_CRESWAVE_CODE_TEST.git
 ```
 
 2. Navigate into the project directory:
 
 ```
-cd angular-cresave-task
+cd ANGULAR_CRESWAVE_CODE_TEST
 ```
 
 3. Install dependencies:
@@ -42,7 +42,7 @@ npm install
 4. Start the development server:
 
 ```
-ng serve
+npm start
 ```
 
 5. Open your browser and navigate to `http://localhost:4200/` to view the app.
