@@ -52,7 +52,7 @@ export class EditTaskComponent implements OnInit {
       return;
     }
     this.loadingTasks = true;
-    const updatedTask = this.taskForm.value as Task;
+    const updatedTask = this.task;
     this.taskService.updateTask(updatedTask)
       .subscribe(() => {
         this.router.navigate(['']);
